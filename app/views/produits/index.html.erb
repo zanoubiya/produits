@@ -1,0 +1,25 @@
+<font face=verdana color=pink><b>Liste des produits</b></font>
+  
+<table style="border-color:(205,106,30);" border=1>
+  <tr>
+    <th>Libelle</th>
+    <th>Prix</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @produits.each do |produit| %>
+  <tr>
+    <td width=150px align=center><%= produit.libelle %></td>
+    <td width=150px align=center><%= produit.prix %></td>
+    <td width=50px align=center><%= link_to 'Voir', produit %></td>
+    <td width=50px align=center><%= link_to 'Modifier', edit_produit_path(produit) %></td>
+    <td width=50px align=center><%= link_to 'Supprimer', produit, confirm: 'etes-vous sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nouveau Produit', new_produit_path %>
